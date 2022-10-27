@@ -6,6 +6,10 @@ const Discover = () => {
   const { data, isFetching, error } = useGetTopChartsQuery();
   const genreTitle = 'pop';
 
+  if (isFetching) return <Loader title="Loading songs ... " />;
+
+  if (error) return <Error />;
+
   return (
     <div className="flex flex-col">
       <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10">
